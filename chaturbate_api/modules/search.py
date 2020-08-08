@@ -1,4 +1,5 @@
 import requests
+import re
 from bs4 import BeautifulSoup
 from .types import Type
 from .tags import Tag
@@ -79,20 +80,25 @@ class ChaturbateSearch:
         self.__search(gender.value[1], *args, **kwargs)
         return self
 
-    def filter_by(self, age=None, gender=Type.NONE, uptime_min=None, spectators=None):
+    def filter_by(self, age=None, gender=Type.NONE, loc_string=None, uptime_min=None, spectators=None):
         """
         Filter cams by parameters
         :param age: filter by the age of the ppl to search
         :param gender: filter by gender
+        :param loc_string: filter by location string
         :param uptime_min: filter by uptime
         :param spectators: filter by number of spectators
         """
+        if loc_string
+                pattern = re.compile(loc_string)
         for user_cam in self.__cams_list:
             # gender must match if is specified else take all
             if gender != Type.NONE and gender != user_cam.gender:
                 continue
             # fields must match the regex if is specified else take all
             if age and not age(user_cam.age):
+                continue
+            if loc_string and not(pattern.search(user_cam.location):
                 continue
             if uptime_min and not uptime_min(user_cam.uptime_min):
                 continue
