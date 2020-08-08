@@ -98,7 +98,7 @@ class ChaturbateSearch:
             # fields must match the regex if is specified else take all
             if age and not age(user_cam.age):
                 continue
-            if loc_string and not(pattern.search(user_cam.location):
+            if loc_string and not pattern.search(user_cam.location):
                 continue
             if uptime_min and not uptime_min(user_cam.uptime_min):
                 continue
