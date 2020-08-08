@@ -2,7 +2,7 @@
 
 Commands framework to handle text commands in a easy way.
 #### Install
-pip install git+https://git@github.com/SpinPool/Chaturbate-API.git@0.0.1
+pip install git+https://git@github.com/palagraph/Chaturbate-API.git@0.0.1
 
 ####Example Base
 It will query in the home page https://c-urbate.com/
