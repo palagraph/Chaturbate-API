@@ -36,6 +36,7 @@ class ChaturbateSearch:
             g.build_url(self.URL)
             g.location = cam.find('li', attrs={'class': 'location'}).text
             g.build_info(cam.find('li', attrs={'class': 'cams'}).text)
+            g.imgsrc = cam.find('a').img['src']
 
             # if this cam is already in results skip it
             if g not in self.__cams_list:
