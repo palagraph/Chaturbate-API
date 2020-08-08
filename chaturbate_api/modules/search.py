@@ -8,7 +8,7 @@ from .exceptions import NoResults
 
 class ChaturbateSearch:
 
-    URL = 'https://chaturbate.com/male-cams/'
+    URL = 'https://chaturbate.com/'
 
     def __init__(self):
         self.__cams_list = []
