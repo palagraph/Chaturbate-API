@@ -60,7 +60,7 @@ class ChatrubateCam:
         """
         time_info = s[1][::-1].split()
         if time_info[1] == 'hrs':
-            t = time_info[0].split(',')
-            self.uptime_min = int(t[0]) * 60 + int(float(t[1]))
+            t = time_info[0].split('.')
+            self.uptime_min = int(t[0]) * 60 + int(t[1]) * 6
         else:
             self.uptime_min = int(time_info[0])
