@@ -89,7 +89,7 @@ class ChaturbateSearch:
         :param uptime_min: filter by uptime
         :param spectators: filter by number of spectators
         """
-        if loc_string
+        if loc_string:
                 pattern = re.compile(loc_string)
         for user_cam in self.__cams_list:
             # gender must match if is specified else take all
