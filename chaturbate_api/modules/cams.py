@@ -11,6 +11,7 @@ class ChatrubateCam:
         self.uptime_min: int = 0
         self.spectators: int = 0
         self.imgsrc: str = ''
+        self.newcam: str = ''
 
     def __eq__(self, other):
         if not isinstance(other, ChatrubateCam):
