@@ -104,7 +104,7 @@ class ChaturbateSearch:
                 continue
             if loc_string and not pattern.search(user_cam.location):
                 continue
-            if newc and not newc(user_cam.newcam):
+            if newc and not user_cam.newcam==newc:
                 continue
             if uptime_min and not uptime_min(user_cam.uptime_min):
                 continue
