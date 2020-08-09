@@ -37,8 +37,8 @@ class ChaturbateSearch:
             g.location = cam.find('li', attrs={'class': 'location'}).text
             g.build_info(cam.find('li', attrs={'class': 'cams'}).text)
             g.imgsrc = cam.find('a').img['src']
-            if cam.find('li', attrs={'class': 'thumbnail_label thumbnail_label_c_new'}):
-                g.newcam = cam.find('li', attrs={'class': 'thumbnail_label thumbnail_label_c_new'}).text
+            if cam.find('div', attrs={'class': 'thumbnail_label thumbnail_label_c_new'}):
+                g.newcam = cam.find('div', attrs={'class': 'thumbnail_label thumbnail_label_c_new'}).text
 
             # if this cam is already in results skip it
             if g not in self.__cams_list:
