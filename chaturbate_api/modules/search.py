@@ -37,6 +37,7 @@ class ChaturbateSearch:
             g.location = cam.find('li', attrs={'class': 'location'}).text
             g.build_info(cam.find('li', attrs={'class': 'cams'}).text)
             g.imgsrc = cam.find('a').img['src']
+            g.newcam = cam.find('li', attrs={'class': 'thumbnail_label thumbnail_label_c_new'}).text
 
             # if this cam is already in results skip it
             if g not in self.__cams_list:
@@ -81,12 +82,13 @@ class ChaturbateSearch:
         self.__search(gender.value[1], *args, **kwargs)
         return self
 
-    def filter_by(self, age=None, gender=Type.NONE, loc_string=None, uptime_min=None, spectators=None):
+    def filter_by(self, age=None, gender=Type.NONE, loc_string=None, newc=None, uptime_min=None, spectators=None):
         """
         Filter cams by parameters
         :param age: filter by the age of the ppl to search
         :param gender: filter by gender
         :param loc_string: filter by location string
+        :param newc: filter by NEW
         :param uptime_min: filter by uptime
         :param spectators: filter by number of spectators
         """
@@ -100,6 +102,8 @@ class ChaturbateSearch:
             if age and not age(user_cam.age):
                 continue
             if loc_string and not pattern.search(user_cam.location):
+                continue
+            if newc and not newc(user_cam.newcam):
                 continue
             if uptime_min and not uptime_min(user_cam.uptime_min):
                 continue
